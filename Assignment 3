@@ -22,4 +22,7 @@ if chi_squareStat >= critical_value:
 else:
 	print('---------fail to reject H0-------') 
 	
+
+
+#ndskjbfsdhfskbvsbvjhsbvhadbsvkjsbkjsdcjksdbkjadsnckjads
 #Q.1
