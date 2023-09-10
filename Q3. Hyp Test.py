@@ -7,7 +7,7 @@ df= pd.read_csv(r'C:\Users\91750\Documents\data sci\Assignment\Assignment 3\Buye
 print(df)
 table=df.iloc[:,1:6]
 print(table)
-value=stats.chi2_contingency(table)
+value=stats.chi2(table)
 print(value)
 ExpectedValue = value[3]
 Degree_of_freedom = 3 # (no of rows - 1) * (no. of columns -1)

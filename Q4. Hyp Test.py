@@ -1,23 +1,18 @@
+#Ho:Customer order forms defective % does not varies by centre
+#Ha:Customer order forms defective % varies by centre
 import pandas as pd
 import numpy as np
 from scipy import stats
-from scipy.stats import chi2
-
-df= pd.read_csv(r'C:\Users\91750\Documents\data sci\Assignment\Assignment 3\BuyerRatio.csv')
+from scipy.stats import chi2_contingency
+df= pd.read_csv(r'C:\Users\91750\Documents\data sci\Assignment\Assignment 3\Costomer+OrderForm.csv')
 print(df)
-table=df.iloc[:,1:6]
-print(table)
-value=stats.chi2_contingency(table)
-print(value)
-ExpectedValue = value[3]
-Degree_of_freedom = 3 # (no of rows - 1) * (no. of columns -1)
-chi_square=sum([(o-e)**2/e for o,e in zip(table.values,ExpectedValue)])
-chi_squareStat=chi_square[0]+chi_square[1]
-print(chi_squareStat)
-critical_value=chi2.ppf(0.95,3)
-print(critical_value)
-if chi_squareStat >= critical_value:
-	print('---------reject H0--------')  
-else:
-	print('---------fail to reject H0-------') 
+print(df.Phillippines.value_counts())
+print(df.Indonesia.value_counts())
+print(df.Malta.value_counts())
+print(df.India.value_counts())
+obs=np.array([[271,267,269,280],[29,33,31,20]])
+print(obs)
+print(chi2_contingency(obs))
+#since pvalue=0.2771020991233135 > 0.05 we Accept Null Hypthesis. 
+#Hence, Customer order forms defective % does not varies by centre
 
